@@ -24,6 +24,7 @@ if __name__ == '__main__':
         if (filename.endswith('xls') or filename.endswith('xlsx')) and ('明信水印长滩' in filename):
             filepath = os.path.join(LocalPath, filename)
             exist = 1
+            print("已找到%s" % filename)
             break
     if exist == 0:
         print("没找到excel文件")
@@ -37,7 +38,7 @@ if __name__ == '__main__':
     except:
         workbook = excel.books.open(filepath)   #打开文件 路径：filepath
 
-
+    print("已打开文件")
     sht = workbook.sheets['Sheet1'] #默认工作表 sheet1
 
     nrows = sht.used_range.last_cell.row #excel已使用总行数
@@ -51,6 +52,7 @@ if __name__ == '__main__':
     data = sht.range(5, 1).expand('table').value
     datalen = len(data)
     endtitle = sht.range((nrows-8, 1), (nrows, 8)).value
+    print("分类中...")
     for i in range(0, datalen-1):# 总数据len条  循环次数1 +（len-1）次
 
         prj_name = data[i][1]
@@ -78,7 +80,7 @@ if __name__ == '__main__':
         print(ticket[i][1])
 
 #====================新建图结表格=========================
-
+    print("新建图结表格")
     DrawWb = xw.Book()
     DrawSht = DrawWb.sheets['sheet1'] #储存在新建工作表的sheet1
 
@@ -91,6 +93,7 @@ if __name__ == '__main__':
     DrawWb.save(path=path) #保存新建文件
 
 #================新建票结表格============================
+    print("新建票结表格")
     TicketWb = xw.Book()
     TicketSht = TicketWb.sheets['sheet1']
 
@@ -121,6 +124,7 @@ if __name__ == '__main__':
     workbook.close()
     DrawWb.close()
     TicketWb.close()
+    print('已分类完成')
 
 
 
