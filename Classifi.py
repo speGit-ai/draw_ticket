@@ -29,13 +29,13 @@ ssl._create_default_https_context = ssl._create_unverified_context
 # EasyDL官网获取到URL
 
 # ak
-API_KEY = ''
+API_KEY = 'NzZD9UylZcXGNUmwbe0ppfmm'
 
 # sk
-SECRET_KEY = ''
+SECRET_KEY = 'tDg8QPBlkBb4EYt7YvLifhTxgcNvqleI'
 
 # url
-EASYDL_TEXT_CLASSIFY_URL = ""
+EASYDL_TEXT_CLASSIFY_URL = "https://aip.baidubce.com/rpc/2.0/ai_custom/v1/text_cls/spear"
 
 """  TOKEN start """
 TOKEN_URL = 'https://aip.baidubce.com/oauth/2.0/token'
